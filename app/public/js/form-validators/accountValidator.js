@@ -59,9 +59,9 @@ AccountValidator.prototype.validateForm = function()
 {
 	var e = [];
 	for (var i=0; i < this.controlGroups.length; i++) this.controlGroups[i].removeClass('error');
-	if (this.validateName(this.formFields[0].val()) == false) {
-		this.controlGroups[0].addClass('error'); e.push('Please Enter Your Name');
-	}
+	// if (this.validateName(this.formFields[0].val()) == false) {
+	// 	this.controlGroups[0].addClass('error'); e.push('Please Enter Your Name');
+	// }
 	if (this.validateEmail(this.formFields[1].val()) == false) {
 		this.controlGroups[1].addClass('error'); e.push('Please Enter A Valid Email');
 	}

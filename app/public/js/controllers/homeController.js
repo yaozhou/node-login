@@ -13,6 +13,12 @@ function HomeController()
 // handle account deletion //
 	$('.modal-confirm .submit').click(function(){ that.deleteAccount(); });
 
+	function handle_msg(event) {
+		console.log(event) ;
+	}
+
+	window.addEventListener('message', handle_msg, false) ;
+
 	this.deleteAccount = function()
 	{
 		$('.modal-confirm').modal('hide');

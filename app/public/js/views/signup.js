@@ -3,6 +3,10 @@ $(document).ready(function(){
 	
 	var av = new AccountValidator();
 	var sc = new SignupController();
+
+	var up_user = window.location.search.match(/up_user=(.*)/) ;
+	if (up_user != null) 
+		document.getElementById('up_user').value = up_user[1] ;
 	
 	$('#account-form').ajaxForm({
 		beforeSubmit : function(formData, jqForm, options){

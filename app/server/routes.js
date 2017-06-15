@@ -2,6 +2,7 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var moment 		= require('moment');
 
 module.exports = function(app) {
 
@@ -45,6 +46,13 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
 		}	else{
+			var user = req.session.user ;
+			var d_n = user.down_users != undefined ? user.down_users.split(',').length : 0 ;
+			if (d_n > 6) d_n = 6 ;
+			var m = moment(user.date, 'YYYY-MM-DD').add(d_n*2+1, 'M') ;
+			req.session.user.dead_line = m.format('YYYY-MM-DD') ;
+
+
 			res.render('home', {
 				title : 'Control Panel',
 				countries : CT,
@@ -93,11 +101,12 @@ module.exports = function(app) {
 	
 	app.post('/signup', function(req, res){
 		AM.addNewAccount({
-			name 	: req.body['name'],
+		//	name 	: req.body['name'],
 			email 	: req.body['email'],
 			user 	: req.body['user'],
 			pass	: req.body['pass'],
-			country : req.body['country']
+			up_user : req.body['up_user'],
+		//	country : req.body['country']
 		}, function(e){
 			if (e){
 				res.status(400).send(e);

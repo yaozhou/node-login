@@ -6,8 +6,25 @@ input(type='hidden', value= user._id)#userId
 
 iframe(id='yao' width='400', height='400', scrolling='yes', frameborder='no', src='http://localhost:8021')
 
-input.form-control#email-tf(type='text', name='email', value= user.down_users)
 
+#account-form-container.center-vertical
+	form(method="post")#account-form.form-horizontal.well
+
+		h6 用户名:		#{user.user}
+		//h6 up user:	#{user.up_user}
+		//h6 down user:	#{user.down_users}
+		h6 注册日期:		#{user.date}
+		h6 账户到期日:	#{user.dead_line}
+
+		hr
+		h6 每邀请一个好友注册，增加2月免费使用时间,上限6人
+		h6 邀请链接: http://localhost:3000/signup?up_user=#{user.user}
+		
+		h7#valid google frame
+
+
+
+	
 
 
 

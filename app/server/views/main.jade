@@ -1,0 +1,16 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+iframe(id='yao' width='400', height='400', scrolling='yes', frameborder='no', src='http://localhost:8021')
+
+input.form-control#email-tf(type='text', name='email', value= user.down_users)
+
+
+
+
+// display form errors in a custom modal window //
+
+include modals/form-errors

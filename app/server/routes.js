@@ -47,9 +47,11 @@ module.exports = function(app) {
 			res.redirect('/');
 		}	else{
 			var user = req.session.user ;
-			var d_n = user.down_users.split(',').length ;
-			var m = moment(user.date, 'YYYY-MM-DD').add(d_n+1, 'M') ;
-			user.dead_line = m.format('YYYY-MM-DD') ;
+			var d_n = user.down_users != undefined ? user.down_users.split(',').length : 0 ;
+			if (d_n > 6) d_n = 6 ;
+			var m = moment(user.date, 'YYYY-MM-DD').add(d_n*2+1, 'M') ;
+			req.session.user.dead_line = m.format('YYYY-MM-DD') ;
+
 
 			res.render('home', {
 				title : 'Control Panel',

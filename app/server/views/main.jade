@@ -6,44 +6,22 @@ input(type='hidden', value= user._id)#userId
 
 #account-form-container.center-vertical
 	form(method="post")#account-form.form-horizontal.well
-		h2
-		h6#sub1 Please tell us a little about yourself.
+
+		h6 用户名:		#{user.user}
+		//h6 up user:	#{user.up_user}
+		//h6 down user:	#{user.down_users}
+		h6 注册日期:		#{user.date}
+		h6 账户到期日:	#{user.dead_line}
+
+		hr
+		h6 每邀请一个好友注册，增加2月免费使用时间,上限6人
+		h6 邀请链接: http://localhost:3000/signup?up_user=#{user.user}
 		
-
-		hr
-		h6#sub2
-		.form-group
-			label.control-label.col-sm-3 Username
-			.col-sm-9
-				input.form-control#user-tf(type='text', name='user', value= user.user).disabled
-
-		.form-group
-			label.control-label.col-sm-3 UpUser
-			.col-sm-9
-				input.form-control#up_user(type='text', name='up_user', value=user.up_user)
-
-		hr
-
-		.form-group
-			label.control-label.col-sm-3 down users
-			.col-sm-9
-				input.form-control#down_users(type='text', name='down_users', value= user.down_users)
-
-		.form-group
-			label.control-label.col-sm-3 date
-			.col-sm-9
-				input.form-control#date(type='text', name='date', value= user.date)
-
-		h6#unvalid #{user.dead_line}
-
 		h7#valid google frame
 
-		hr
 
-		.form-buttons
-			button(type='button')#account-form-btn1.btn.btn-default
-			button(type='submit')#account-form-btn2.btn.btn-primary
-		.clearfix
+
+	
 
 
 

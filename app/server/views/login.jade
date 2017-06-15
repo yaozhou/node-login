@@ -5,28 +5,28 @@ block content
 
 	#login.center-vertical
 		form.well(id='form-login', method='post')
-			h2 Hello!
-			h6 Please Login To Your Account
+			h2 google
+			h6 登录
 			.form-group
-				label Username
+				label 用户名
 				input.form-control(type='text', id='user-tf', name='user')
 			.form-group
-				label Password
+				label 密码
 				input.form-control(type='password', id='pass-tf', name='pass')
 			.controls
 				button(type='button').btn.btn-default.button-rememember-me
 					span.glyphicon.glyphicon-unchecked.button-rememember-me-glyph
-					| Remember Me
+					| 记住我
 				button(type='submit').btn.btn-primary.button-sign-in
 					span.glyphicon.glyphicon-lock
-					| Sign In
+					| 登录
 			.clearfix
 			hr
 			.btm-links
 				#forgot-password
-					a(href='#') Forgot Your Password?
+					a(href='#') 忘记密码?
 				#create-account
-					a(href='/signup') Create An Account
+					a(href='/signup') 秒建新用户
 			.clearfix
 
 	include modals/alert

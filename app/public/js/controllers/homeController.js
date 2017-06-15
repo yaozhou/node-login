@@ -28,7 +28,7 @@ function HomeController()
 			type: 'POST',
 			data: { id: $('#userId').val()},
 			success: function(data){
-	 			that.showLockedAlert('Your account has been deleted.<br>Redirecting you back to the homepage.');
+	 			that.showLockedAlert('你的账户已经被删除.<br>正在跳转到首页.');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -44,7 +44,7 @@ function HomeController()
 			type: "POST",
 			data: {logout : true},
 			success: function(data){
-	 			that.showLockedAlert('You are now logged out.<br>Redirecting you back to the homepage.');
+	 			that.showLockedAlert('您已经退出登录.<br>正在跳转到首页.');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -65,8 +65,8 @@ function HomeController()
 HomeController.prototype.onUpdateSuccess = function()
 {
 	$('.modal-alert').modal({ show : false, keyboard : true, backdrop : true });
-	$('.modal-alert .modal-header h4').text('Success!');
-	$('.modal-alert .modal-body p').html('Your account has been updated.');
+	$('.modal-alert .modal-header h4').text('成功!');
+	$('.modal-alert .modal-body p').html('您的账户信息已经被更新.');
 	$('.modal-alert').modal('show');
 	$('.modal-alert button').off('click');
 }

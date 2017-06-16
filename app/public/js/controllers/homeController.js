@@ -13,11 +13,46 @@ function HomeController()
 // handle account deletion //
 	$('.modal-confirm .submit').click(function(){ that.deleteAccount(); });
 
-	function handle_msg(event) {
-		console.log(event) ;
-	}
+	function jump(url, server) {
 
-	window.addEventListener('message', handle_msg, false) ;
+        var form = document.createElement('form') ;
+        form.id = 'proxy_form' ;
+        form.name = 'proxy_form' ;
+
+        document.body.appendChild(form) ;
+
+        var input1 = document.createElement('input') ;
+        input1.type = 'text' ;
+        input1.name = 'u' ;
+        input1.value = url ;
+
+        var input2 = document.createElement('input') ;
+        input2.type = 'text' ;
+        input2.name = 'encodeURL' ;
+        input2.value = 'on' ;
+
+        var input3 = document.createElement('input') ;
+        input3.type = 'text' ;
+        input3.name = 'allowCookies' ;
+        input3.value = 'on' ;
+
+        form.appendChild(input1) ;
+        form.appendChild(input2) ;
+        form.appendChild(input3) ;
+        form.method = "POST" ;
+        form.action = server ;
+        form.submit() ;
+
+        document.body.removeChild(form) ;
+    }
+	
+
+	window.addEventListener('message', function(event) {
+           
+        jump(event.data.url, event.data.server) ;
+		console.log(event) ;
+
+	}, false) ;
 
 	this.deleteAccount = function()
 	{
